@@ -3,6 +3,15 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from '../src/App'
 
+vi.mock('../src/hooks/usePolling', () => ({
+  usePolling: vi.fn().mockReturnValue({
+    verification: { id: 'abc-123', status: 'approved' },
+    isLoading: false,
+    error: null,
+    stopped: true,
+  }),
+}))
+
 vi.mock('../src/pages/kyc-wizard/KycWizardPage', () => ({
   default: ({ onComplete }: { onComplete: (id: string) => void }) => (
     <button onClick={() => onComplete('abc-123')}>Mock Wizard</button>
@@ -20,6 +29,6 @@ describe('App', () => {
     render(<App />)
 
     await user.click(screen.getByText('Mock Wizard'))
-    expect(screen.getByText(/abc-123/)).toBeDefined()
+    expect(screen.getAllByText('Aprobado')).toHaveLength(2)
   })
 })
