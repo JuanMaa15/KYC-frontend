@@ -70,7 +70,10 @@ export function createVerification(
 }
 
 export function getVerification(
-  id: string,
+  id: string | null,
 ): Promise<ApiResponse<Verification>> {
+  if (!id) {
+    throw new ApiError('ID de verificación no proporcionado.', 400)
+  }
   return apiFetch<Verification>(`/api/v1/verifications/${id}`)
 }
