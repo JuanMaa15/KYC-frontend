@@ -17,7 +17,13 @@ export default function App() {
     <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4 dark:bg-gray-950">
       {view === 'wizard' && <KycWizardPage onComplete={handleComplete} />}
       {view === 'status' && verificationId && (
-        <StatusPage verificationId={verificationId} />
+        <StatusPage
+          verificationId={verificationId}
+          onReset={() => {
+            setView('wizard')
+            setVerificationId(null)
+          }}
+        />
       )}
     </div>
   )
