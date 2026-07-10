@@ -3,7 +3,13 @@ import { z } from 'zod'
 import { createVerification } from '../../services/api'
 
 const personalDataSchema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
+  name: z
+    .string()
+    .min(2, 'El nombre debe tener al menos 2 caracteres')
+    .regex(
+      /^[a-zA-ZáéíóúüñÑÁÉÍÓÚÜ\s]+$/,
+      'El nombre solo puede contener letras y espacios',
+    ),
   email: z.string().email('Correo electrónico inválido'),
   documentNumber: z
     .string()
