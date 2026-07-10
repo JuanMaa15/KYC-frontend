@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo } from 'react'
 import FileUpload from '../../components/FileUpload'
 
 interface StepSelfieProps {
@@ -11,12 +11,6 @@ export default function StepSelfie({ file, onChange }: StepSelfieProps) {
     if (!file) return null
     return URL.createObjectURL(file)
   }, [file])
-
-  useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview)
-    }
-  }, [preview])
 
   return (
     <div>
