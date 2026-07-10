@@ -14,7 +14,11 @@ const personalDataSchema = z.object({
   documentNumber: z
     .string()
     .min(5, 'El documento debe tener al menos 5 caracteres')
-    .max(20, 'El documento debe tener máximo 20 caracteres'),
+    .max(20, 'El documento debe tener máximo 20 caracteres')
+    .regex(
+      /^[a-zA-Z0-9]+$/,
+      'El documento no puede contener puntos ni espacios',
+    ),
 })
 
 export type PersonalData = z.infer<typeof personalDataSchema>
