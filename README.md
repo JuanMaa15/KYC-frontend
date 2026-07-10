@@ -110,6 +110,23 @@ test/                 # Tests unitarios (Vitest)
 └── hooks/
 ```
 
+## Ejecución con Docker (opcional)
+
+```bash
+# Construir la imagen
+docker build -t kyc-frontend .
+
+# Iniciar el contenedor
+docker run --name kyc-interfaz -p 80:80 kyc-frontend
+```
+Levanta el frontend en `http://localhost:80`
+
+Detener y limpiar:
+
+```bash
+docker stop kyc-interfaz && docker rm kyc-interfaz
+```
+
 ## API (backend)
 
 | Método | Ruta | Descripción |
