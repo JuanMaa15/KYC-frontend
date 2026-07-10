@@ -3,11 +3,26 @@ import { z } from 'zod'
 import { createVerification } from '../../services/api'
 
 const personalDataSchema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-  email: z.string().email('Correo electrónico inválido'),
+  name: z
+    .string()
+    .min(2, 'El nombre debe tener al menos 2 caracteres')
+    .max(100, 'El nombre debe tener máximo 100 caracteres')
+    .regex(
+      /^[a-zA-ZáéíóúüñÑÁÉÍÓÚÜ\s]+$/,
+      'El nombre solo puede contener letras y espacios',
+    ),
+  email: z
+    .string()
+    .email('Correo electrónico inválido')
+    .max(100, 'El correo debe tener máximo 100 caracteres'),
   documentNumber: z
     .string()
-    .min(5, 'El documento debe tener al menos 5 caracteres'),
+    .min(5, 'El documento debe tener al menos 5 caracteres')
+    .max(20, 'El documento debe tener máximo 20 caracteres')
+    .regex(
+      /^[a-zA-Z0-9]+$/,
+      'El documento no puede contener puntos ni espacios',
+    ),
 })
 
 export type PersonalData = z.infer<typeof personalDataSchema>
