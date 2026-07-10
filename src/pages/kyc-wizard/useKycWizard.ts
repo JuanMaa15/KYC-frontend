@@ -13,7 +13,8 @@ const personalDataSchema = z.object({
   email: z.string().email('Correo electrónico inválido'),
   documentNumber: z
     .string()
-    .min(5, 'El documento debe tener al menos 5 caracteres'),
+    .min(5, 'El documento debe tener al menos 5 caracteres')
+    .max(20, 'El documento debe tener máximo 20 caracteres'),
 })
 
 export type PersonalData = z.infer<typeof personalDataSchema>
