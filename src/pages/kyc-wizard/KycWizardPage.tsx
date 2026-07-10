@@ -58,7 +58,7 @@ export default function KycWizardPage({ onComplete }: KycWizardPageProps) {
         </div>
       </div>
 
-      <div className="mt-6 w-full animate-fade-in rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mt-6 w-full animate-fade-in rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
         <div className="flex flex-col gap-6">
           <WizardProgress currentStep={currentStep} />
 
