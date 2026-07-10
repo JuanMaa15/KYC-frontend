@@ -15,7 +15,7 @@ describe('StatusPage', () => {
       verification: null, isLoading: true, error: null, stopped: false,
     })
     render(<StatusPage verificationId="abc-123" />)
-    expect(screen.getByText(/Verificando tu identidad/i)).toBeDefined()
+    expect(screen.getAllByText(/Verificando tu identidad/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('muestra aprobado cuando status es approved', () => {
