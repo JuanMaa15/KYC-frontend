@@ -45,9 +45,9 @@ export default function StatusPage({ verificationId, onReset }: StatusPageProps)
           title="Verificando tu identidad"
           subtitle="Estamos verificando tu identidad..."
         />
-        <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <Spinner size="lg" />
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-slate-300">
             Verificando tu identidad...
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function StatusPage({ verificationId, onReset }: StatusPageProps)
           title="Verificando tu identidad"
           subtitle="Estamos verificando tu identidad..."
         />
-        <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-red-200 bg-white p-8 shadow-sm">
+        <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-red-200 bg-white p-8 shadow-sm dark:border-red-900 dark:bg-slate-800">
           <svg className="h-10 w-10 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
           </svg>
@@ -86,12 +86,12 @@ export default function StatusPage({ verificationId, onReset }: StatusPageProps)
           title="Verificando tu identidad"
           subtitle="Estamos verificando tu identidad..."
         />
-        <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-yellow-200 bg-white p-8 shadow-sm">
+        <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-yellow-200 bg-white p-8 shadow-sm dark:border-yellow-900 dark:bg-slate-800">
           <svg className="h-10 w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <StatusBadge status="pending" />
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-slate-300">
             La verificación está tomando más tiempo de lo esperado.
             Intenta de nuevo más tarde.
           </p>
@@ -114,10 +114,10 @@ export default function StatusPage({ verificationId, onReset }: StatusPageProps)
             title="Verificando tu identidad"
             subtitle="Estamos verificando tu identidad..."
           />
-          <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800">
             <Spinner size="lg" />
             <StatusBadge status="pending" />
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-slate-600 dark:text-slate-300">
               Verificando tu identidad...
             </p>
           </div>
@@ -146,16 +146,16 @@ export default function StatusPage({ verificationId, onReset }: StatusPageProps)
           }
         />
         <div
-          className={`flex w-full flex-col items-center gap-4 rounded-2xl border bg-white p-8 shadow-sm ${
+          className={`flex w-full flex-col items-center gap-4 rounded-2xl border bg-white p-8 shadow-sm dark:bg-slate-800 ${
             isApproved
-              ? 'border-green-200'
-              : 'border-red-200'
+              ? 'border-green-200 dark:border-green-900'
+              : 'border-red-200 dark:border-red-900'
           }`}
         >
           <StatusBadge status={verification.status} />
           <h2
             className={`text-xl font-semibold ${
-              isApproved ? 'text-green-600' : 'text-red-600'
+              isApproved ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
             }`}
           >
             {isApproved ? 'Aprobado' : 'Rechazado'}

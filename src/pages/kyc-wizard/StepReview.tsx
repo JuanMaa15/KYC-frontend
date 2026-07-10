@@ -14,7 +14,7 @@ function FileThumbnail({ file, name }: FileThumbnailProps) {
   }, [file])
 
   return (
-    <div className="border border-slate-200 rounded-lg p-2">
+    <div className="border border-slate-200 rounded-lg p-2 dark:border-slate-700">
       {blobUrl ? (
         <img
           src={blobUrl}
@@ -22,11 +22,11 @@ function FileThumbnail({ file, name }: FileThumbnailProps) {
           className="h-32 w-full object-contain"
         />
       ) : (
-        <div className="flex h-32 items-center justify-center rounded border border-dashed border-slate-200">
-          <span className="text-xs text-slate-400">No subido</span>
+        <div className="flex h-32 items-center justify-center rounded border border-dashed border-slate-200 dark:border-slate-700">
+          <span className="text-xs text-slate-400 dark:text-slate-500">No subido</span>
         </div>
       )}
-      <p className="mt-1 truncate text-center text-xs text-slate-400">
+      <p className="mt-1 truncate text-center text-xs text-slate-400 dark:text-slate-500">
         {file?.name ?? 'No subido'}
       </p>
     </div>
@@ -54,31 +54,31 @@ export default function StepReview({
 }: StepReviewProps) {
   return (
     <div className="flex flex-col gap-4">
-      <div className="rounded-lg border border-slate-200">
-        <div className="border-b border-slate-200 px-4 py-3">
-          <h3 className="text-sm font-semibold text-slate-900">
+      <div className="rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="border-b border-slate-200 px-4 py-3 dark:border-slate-700">
+          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
             Datos personales
           </h3>
         </div>
-        <div className="divide-y divide-slate-100">
+        <div className="divide-y divide-slate-100 dark:divide-slate-700">
           <div className="flex justify-between px-4 py-3">
-            <span className="text-sm text-slate-400">Nombre</span>
-            <span className="text-sm font-semibold text-slate-900">{data.name}</span>
+            <span className="text-sm text-slate-400 dark:text-slate-400">Nombre</span>
+            <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">{data.name}</span>
           </div>
           <div className="flex justify-between px-4 py-3">
-            <span className="text-sm text-slate-400">Correo</span>
-            <span className="text-sm font-semibold text-slate-900">{data.email}</span>
+            <span className="text-sm text-slate-400 dark:text-slate-400">Correo</span>
+            <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">{data.email}</span>
           </div>
           <div className="flex justify-between px-4 py-3">
-            <span className="text-sm text-slate-400">Documento</span>
-            <span className="text-sm font-semibold text-slate-900">{data.documentNumber}</span>
+            <span className="text-sm text-slate-400 dark:text-slate-400">Documento</span>
+            <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">{data.documentNumber}</span>
           </div>
         </div>
       </div>
 
-      <div className="rounded-lg border border-slate-200">
-        <div className="border-b border-slate-200 px-4 py-3">
-          <h3 className="text-sm font-semibold text-slate-900">
+      <div className="rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="border-b border-slate-200 px-4 py-3 dark:border-slate-700">
+          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
             Archivos
           </h3>
         </div>
@@ -102,7 +102,7 @@ export default function StepReview({
         <button
           type="button"
           onClick={onBack}
-          className="text-sm text-slate-500"
+          className="text-sm text-slate-500 dark:text-slate-400"
         >
           Atrás
         </button>
