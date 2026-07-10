@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo } from 'react'
 import FileUpload from '../../components/FileUpload'
 
 interface StepDocumentPhotoProps {
@@ -14,12 +14,6 @@ export default function StepDocumentPhoto({
     if (!file) return null
     return URL.createObjectURL(file)
   }, [file])
-
-  useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview)
-    }
-  }, [preview])
 
   return (
     <div>
